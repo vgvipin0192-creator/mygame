@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Timer Game</title>
+</head>
+<body style="text-align:center; margin-top:100px; font-family:Arial;">
+
+<h2>⏱ Timer Game</h2>
+
+<p>Time Left: <span id="time">10</span> sec</p>
+<p>Score: <span id="score">0</span></p>
+
+<button id="btn" style="padding:20px 40px; font-size:20px;">
+    CLICK FAST
+</button>
+
+<script>
+let score = 0;
+let time = 10;
+
+let timer = setInterval(function () {
+    time--;
+    document.getElementById("time").innerText = time;
+
+    if (time === 0) {
+        clearInterval(timer);
+        document.getElementById("btn").disabled = true;
+        alert("Game Over! Your Score: " + score);
+    }
+}, 1000);
+
+document.getElementById("btn").onclick = function () {
+    score++;
+    document.getElementById("score").innerText = score;
+};
+</script>
+
+</body>
+</html>
